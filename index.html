@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="canonical" href="https://ibrahim013.github.io/currencyconverter/" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <title>Currency Converter</title>
+</head>
+<body>
+    <main>
+        <h1>Currency Converter</h1>
+        <lable>From</lable>
+        <input type="number" ></main>
+        <lable>to</lable>
+        <input type="number" ></input>
+    </main>
+</body>
+<script>
+    if(navigator.serviceWorker){
+        navigator.serviceWorker.register('/currencyconverter/sw.js', {scope: '/currencyconverter/'})
+    }
+</script>
+</html>
