@@ -1,0 +1,24 @@
+{
+  "name": "currencyconverter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sw.js",
+  "dependencies": {
+    "idb": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibrahim013/currencyconverter.git"
+  },
+  "author": "Ibrahim-Abdulazeez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibrahim013/currencyconverter/issues"
+  },
+  "homepage": "https://github.com/ibrahim013/currencyconverter#readme"
+}

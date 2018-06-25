@@ -1,0 +1,39 @@
+#container{
+    border: solid 1px rgb(240, 229, 229);
+    width: 40%;
+    height: 14rem;
+    margin: 2rem auto;
+    align-self: auto;
+}
+#result{
+   height: 3.2rem;
+   padding: 0.3rem 0 0 1rem; 
+   font-size: 2rem;
+}
+select{
+    width: 12rem;
+    height: 3rem;
+}
+label{
+    padding-left: 1rem;
+}
+h2{
+    text-align: center;
+    margin-bottom: 0em;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input[type=number]{
+    height: 1.7rem;
+    width: 10rem;
+    margin: 1.4rem 1rem 1rem 5.2rem;
+}
+
+button{
+    height: 2rem;
+    width: 10rem;
+}
