@@ -1,5 +1,4 @@
-const staticCacheName = 'currencyConverter-V1';
-var allCaches = [staticCacheName]
+const staticCacheName = 'currencyConverter-V4';
 const cacheUrl = [
     './index.html',
     './css/main.css',
@@ -18,17 +17,26 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
     event.waitUntil(caches.keys().then((cacheNames) => {
         return Promise.all(cacheNames.filter((cacheName) => {
-        return cacheName.startsWith('currencyConverter-') && !allCaches.includes(cacheName);
+        return cacheName.startsWith('currencyConverter-') && !staticCacheName.includes(cacheName);
         }).map((cacheName) =>{
         return caches['delete'](cacheName);
         }));
     }));
 });
 
-//respond to all request
+//respond to all request and 
 self.addEventListener('fetch', (event) => {
-    console.log(event)
-    event.respondWith(caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
-    }))
-})
+    event.respondWith(
+      caches.match(event.request).then((resp) => {
+        return resp || fetch(event.request).then((response) => {
+          let responseClone = response.clone();
+          caches.open(staticCacheName).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+          return response;
+        });
+      }).catch(()=> {
+        return caches.match('./index.html');
+      })
+    );
+  })

@@ -47,13 +47,11 @@ const getSelectedCurrency = () => {
 }
 
 //convert the currency
-
-const convertCurrency = (amount, fromCurrency, toCurrency, cb) => {
+const convertCurrency = (amount, fromCurrency, toCurrency) => {
 fromCurrency = encodeURIComponent(fromCurrency);
 toCurrency = encodeURIComponent(toCurrency);
 let query = fromCurrency.concat('_', toCurrency);
-let convertUrl = 'https://free.currencyconverterapi.com/api/v5/convert?q='
-+ query;
+let convertUrl = `https://free.currencyconverterapi.com/api/v5/convert?q=${query}`;
 fetch(convertUrl).then((response) => response.json()).then((data) => {
     let value = data.results[query].val;
     let to = data.results[query].to
@@ -61,11 +59,6 @@ fetch(convertUrl).then((response) => response.json()).then((data) => {
         let total = value * amount;
         showResult.innerHTML = Math.round(total * 100) / 100 +' '+ to;
     }
-    //   else {
-    //     var err = new Error("Value not found for " + query);
-    //     console.log(err);
-    //     cb(err);
-    //   }
-
-})
+    addCurrency(data.results[query])
+}).catch((error) => error)
 }
